@@ -2,7 +2,6 @@ import PopupWithForm from "./PopupWithForm";
 
 
 function EditProfilePopup(props) {
-    console.log(props)
     return (
         <PopupWithForm
             isOpen={props.isOpen ? "popup_is-opened" : ""}
