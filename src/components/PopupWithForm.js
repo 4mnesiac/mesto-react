@@ -5,22 +5,20 @@ function handleClose(e) {
 }
 
 function PopupWithForm(props) {
-    console.log(props)
     return (
-        <div className={`popup popup_${props.name} popup_is-opened`}>
+        <div className={`popup popup_${props.name} ${props.isOpen}`}>
             <div className="popup__content">
-                <img src={closeBtn} alt="" className="popup__close" onClick={handleClose} />
+                <img
+                    src={closeBtn}
+                    alt="Закрыть"
+                    className="popup__close" onClick={handleClose} />
                 <h3 className="popup__title">{props.title}</h3>
-                <form className="popup__form popup__form_add-card" name={props.name} noValidate>
-                    <input type="text" name="name" className="popup__input" placeholder="Название" minLength="2" maxLength="30"
-                        required />
-                    <label htmlFor="name" className="popup__error"></label>
-                    <input type="url" name="link" className="popup__input" placeholder="Ссылка на картинку" minLength="2"
-                        maxLength="100" required />
-                    <label htmlFor="link" className="popup__error"></label>
-                    <button className="button popup__button" disabled>
-                        +
-      </button>
+                <form
+                    className={`popup__form popup__form_${props.name}`}
+                    name={props.name}
+                    noValidate
+                >
+                    {props.children}
                 </form>
             </div>
         </div>
@@ -60,3 +58,15 @@ export default PopupWithForm;
                     </form>
                 </div>
             </div> */}
+
+        //     <form className="popup__form popup__form_add-card" name={props.name} noValidate>
+        //     <input type="text" name="name" className="popup__input" placeholder="Название" minLength="2" maxLength="30"
+        //         required />
+        //     <label htmlFor="name" className="popup__error"></label>
+        //     <input type="url" name="link" className="popup__input" placeholder="Ссылка на картинку" minLength="2"
+        //         maxLength="100" required />
+        //     <label htmlFor="link" className="popup__error"></label>
+        //     <button className="button popup__button" disabled>
+        //         +
+        //     </button>
+        // </form>
